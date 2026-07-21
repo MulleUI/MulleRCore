@@ -25,7 +25,7 @@
 
 static UIWindowDisplayBits   defaultFrameCallback( id <UIOSWindow> window_in)
 {
-   mulle_fprintf( stderr, "The RCore window needs a frameCallback.\n");
+   mulleui_log( "The RCore window needs a frameCallback.\n");
    abort();
 }
 
@@ -153,14 +153,14 @@ static struct
 
    if( styleMask & (UIWindowStyleRetained|UIWindowStyleRetainedOnMainThread))
    {
-      mulle_fprintf( stderr, "error: RCoreOSWindow only supports a single window, no retained window styles possible\n");
+      mulleui_log( "error: RCoreOSWindow only supports a single window, no retained window styles possible\n");
       [self release];
       return( nil);
    }
 
    if( ! _mulle_atomic_pointer_cas( &s_singleton, self, NULL))
    {
-      mulle_fprintf( stderr, "error: RCoreOSWindow only supports a single window, one already exists\n");
+      mulleui_log( "error: RCoreOSWindow only supports a single window, one already exists\n");
       [self release];
       return( nil);
    }
@@ -189,7 +189,7 @@ static struct
 
    if( ! IsWindowReady())
    {
-      mulle_fprintf( stderr, "error: raylib InitWindow failed\n");
+      mulleui_log( "error: raylib InitWindow failed\n");
       [self release];
       return( nil);
    }
@@ -763,6 +763,31 @@ static struct
 
 - (void) syncOSWindowPropertyChangesIfNeeded
 {
+}
+
+
+#pragma mark - UIWindow / UIEventReceiver protocol stubs
+
+- (void) applicationDidChangeWindowCount:(NSUInteger) count
+{
+}
+
+
+- (id) firstResponder
+{
+   return( nil);
+}
+
+
+- (UIWindowEvent *) handleWindowEvent:(UIWindowEvent *) event
+{
+   return( event);
+}
+
+
+- (void) receiveRetainedEvent:(UIEvent *) event
+{
+   [event release];
 }
 
 @end

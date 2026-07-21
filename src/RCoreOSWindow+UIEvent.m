@@ -60,6 +60,10 @@
 
    [self os_pollInputState:&current];
 
+   // ctrl+left click -> right click (macOS convention)
+   current.buttonStates = UIEventButtonStatesWithModifiers( current.buttonStates,
+                                                            &current.keyModifiers);
+
    NSLockingDo( _inputStateLock)
    {
       previous    = _inputState;
@@ -89,17 +93,23 @@
       {
          for( bit = 1; bit <= (1 << 4); bit <<= 1)
          {
-            if( changedButtons & bit)
-            {
-               UIEvent      *event;
-               NSUInteger   action;
+if( changedButtons & bit)
+             {
+                UIEvent      *event;
+                NSUInteger   action;
+                NSUInteger   button;
+                NSUInteger   keyModifiers;
 
-               action = (current.buttonStates & bit)
-                           ? UIEventButtonActionDown
-                           : UIEventButtonActionUp;
-               event = [[UIMouseButtonEvent alloc] initWithInputState:&current
-                                                              button:bit
-                                                              action:action];
+                button       = bit;
+                keyModifiers = current.keyModifiers;
+                button       = UIEventMouseButtonWithModifiers( button, &keyModifiers);
+                action = (current.buttonStates & bit)
+                            ? UIEventButtonActionDown
+                            : UIEventButtonActionUp;
+event = [[UIMouseButtonEvent alloc] initWithInputState:&current
+                                                               button:button
+                                                               action:action
+                                                           clickCount:1];
                _otherRetainedEventsCallback( self, event);
             }
          }
@@ -202,9 +212,11 @@
       if( fbSize.width != _windowInfo.base.framebufferSize.width ||
           fbSize.height != _windowInfo.base.framebufferSize.height)
       {
-         UIWindowEvent   *event;
+UIWindowFramebufferResizeEvent   *event;
 
-         event = [[[UIWindowFramebufferResizeEvent alloc] initWithSize:fbSize] autorelease];
+          event = [UIWindowFramebufferResizeEvent alloc];
+          event = [event initWithSize:fbSize];
+          event = [event autorelease];
          _uninitializedFramebuffer = YES;
          _windowEventsCallback( self, event);
       }
@@ -214,9 +226,11 @@
 
    if( WindowShouldClose())
    {
-      UIWindowEvent   *event;
+      UIWindowCloseEvent   *event;
 
-      event = [[[UIWindowCloseEvent alloc] init] autorelease];
+      event = [UIWindowCloseEvent alloc];
+      event = [event init];
+      event = [event autorelease];
       _windowEventsCallback( self, event);
    }
 }

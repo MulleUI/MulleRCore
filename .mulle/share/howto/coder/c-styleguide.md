@@ -1,5 +1,4 @@
 ## Coding Style Guide
-
 <!-- Keywords: edit, objc, objective-c, styleguide -->
 
 This document outlines the coding conventions. All contributions must adhere to

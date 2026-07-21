@@ -121,11 +121,11 @@ typedef void   (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, U
 - (id <UIScreen>) screen                              MULLE_OBJC_THREADSAFE_METHOD;
 - (id <UIScreen>) screenOrPrimaryScreen:(BOOL) flag   MULLE_OBJC_THREADSAFE_METHOD;
 
-- (NSInteger) shareID;
-- (BOOL) shouldClose;
+- (NSInteger) shareID      MULLE_OBJC_THREADSAFE_METHOD;
+- (BOOL) shouldClose       MULLE_OBJC_THREADSAFE_METHOD;
 
 - (void) os_destroyWindow;
-- (void *) os_window;
+- (void *) os_window                               MULLE_OBJC_THREADSAFE_METHOD;
 
 - (CGPoint) os_windowPosition;
 - (void) os_setWindowPosition:(CGPoint) position;
@@ -133,7 +133,7 @@ typedef void   (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, U
 - (void) os_setWindowSize:(CGSize) size;
 - (CGRect) os_windowFrame;
 - (void) os_setWindowFrame:(CGRect) rect;
-- (void) os_setSwapInterval:(NSUInteger) value;
+- (void) os_setSwapInterval:(NSUInteger) value     MULLE_OBJC_THREADSAFE_METHOD;
 
 - (CGPixelSize) os_framebufferSize;
 - (CGVector) os_UIScale;
@@ -141,10 +141,10 @@ typedef void   (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, U
 - (void) os_activateGraphicsContext       MULLE_OBJC_THREADSAFE_METHOD;
 - (void) os_deactivateGraphicsContext     MULLE_OBJC_THREADSAFE_METHOD;
 - (BOOL) os_tryActivateGraphicsContext    MULLE_OBJC_THREADSAFE_METHOD;
-- (void) os_swapBuffers;
+- (void) os_swapBuffers                            MULLE_OBJC_THREADSAFE_METHOD;
 
-- (void) os_requestClose;
-- (BOOL) os_windowShouldClose;
+- (void) os_requestClose                           MULLE_OBJC_THREADSAFE_METHOD;
+- (BOOL) os_windowShouldClose                      MULLE_OBJC_THREADSAFE_METHOD;
 
 - (void) os_show;
 - (void) os_hide;
@@ -165,7 +165,7 @@ typedef void   (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, U
 
 - (mulle_relativetime_t) displayFrameIfNeeded:(mulle_absolutetime_t) now;
 
-- (NSThread *) activeThread;
+- (NSThread *) activeThread                        MULLE_OBJC_THREADSAFE_METHOD;
 
 @end
 
