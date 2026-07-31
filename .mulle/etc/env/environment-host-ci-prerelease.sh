@@ -215,12 +215,6 @@ export MULLE__OBJC__LIST_BRANCH="prerelease"
 
 
 #
-# mulle-objc-list branch: ${MULLE_OBJC_LIST_BRANCH}
-#
-export MULLE_OBJC_LIST_BRANCH="prerelease"
-
-
-#
 # MulleUIApplication nodetype: ${MULLE_UI_APPLICATION_NODETYPE:-tar}
 #
 export MULLE_UI_APPLICATION_NODETYPE="git"
@@ -290,5 +284,11 @@ export MULLE__GFX_URL="https://github.com/mulle-gfx/mulle-gfx.git"
 # mulle-gfx branch: ${MULLE__GFX_BRANCH}
 #
 export MULLE__GFX_BRANCH="prerelease"
+
+
+#
+# mulle-objc-list branch: ${MULLE_OBJC_LIST_BRANCH}
+#
+export MULLE_OBJC_LIST_BRANCH="prerelease"
 
 
