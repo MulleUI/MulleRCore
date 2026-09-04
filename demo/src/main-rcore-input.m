@@ -34,7 +34,9 @@ static UIWindowDisplayBits  frameCallback( id <UIOSWindow> window)
 int   main( int argc, char *argv[])
 {
    RCoreOSWindow   *window;
+   UIApplication   *app;
 
+   app = [UIApplication sharedInstance];
    window = [RCoreOSWindow windowWithFrame:CGRectMake( 0, 0, 800, 450)
                            titleUTF8String:"MulleRCore - Input"
                                  styleMask:UIWindowStyleResizable];
@@ -44,5 +46,5 @@ int   main( int argc, char *argv[])
    [window setFrameCallback:frameCallback];
    [window setFrameRateHz:60.0];
 
-   return( UIApplicationRunWindow( window));
+   return( [app runWindow:window]);
 }

@@ -773,6 +773,13 @@ static struct
 }
 
 
++ (NSUInteger) effectiveWindowStyleMask:(NSUInteger) styleMask
+                          graphicsHints:(UIOSWindowGraphicsHints) hints
+{
+   return( styleMask);
+}
+
+
 - (id) firstResponder
 {
    return( nil);

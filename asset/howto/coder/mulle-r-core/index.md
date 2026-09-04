@@ -42,7 +42,7 @@ mulle-sde code search "RCoreOSWindow"
 1. Create a window with `+[RCoreOSWindow windowWithFrame:titleUTF8String:styleMask:]`
 2. Set a `frameCallback` to issue raylib draw commands each frame
 3. Set frame rate with `[window setFrameRateHz:]`
-4. Call `UIApplicationRunWindow(window)` to enter the run loop
+4. Initialize `UIApplication` before creating the window and call `[app runWindow:window]` to enter the run loop
 
 For input, either call raylib functions directly (`GetMousePosition`, `IsKeyDown`)
 inside the frame callback, or use the MulleRCore input state API

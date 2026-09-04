@@ -526,7 +526,7 @@ Iterates all 16 gamepad slots, calls `os_pollGamepadInfo` on available gamepads.
   1. Create a window with `+ windowWithFrame:titleUTF8String:styleMask:`
   2. Set the frame callback with `[window setFrameCallback:...]`
   3. Set frame rate with `[window setFrameRateHz:60.0]`
-  4. Call `UIApplicationRunWindow( window)` to enter the run loop
+  4. Initialize `UIApplication` before creating the window and call `[app runWindow:window]` to enter the run loop
 - For input, either use direct raylib calls (`IsKeyDown`, `GetMousePosition`)
   in the frame callback, or use the MulleRCore input state API
   (`[window inputState]`, `[window pressedKeys:count:]`).
@@ -553,7 +553,9 @@ static UIWindowDisplayBits   frameCallback( id <UIOSWindow> window)
 int   main( int argc, char *argv[])
 {
    RCoreOSWindow   *window;
+   UIApplication   *app;
 
+   app = [UIApplication sharedInstance];
    window = [RCoreOSWindow windowWithFrame:CGRectMake( 0, 0, 800, 450)
                            titleUTF8String:"MulleRCore Demo"
                                  styleMask:UIWindowStyleResizable];
@@ -563,7 +565,7 @@ int   main( int argc, char *argv[])
    [window setFrameCallback:frameCallback];
    [window setFrameRateHz:60.0];
 
-   return( UIApplicationRunWindow( window));
+   return( [app runWindow:window]);
 }
 ```
 
@@ -617,7 +619,9 @@ static UIWindowDisplayBits   frameCallback( id <UIOSWindow> osWindow)
 int   main( int argc, char *argv[])
 {
    RCoreOSWindow   *window;
+   UIApplication   *app;
 
+   app = [UIApplication sharedInstance];
    window = [RCoreOSWindow windowWithFrame:CGRectMake( 0, 0, 800, 450)
                            titleUTF8String:"Input State Demo"
                                  styleMask:UIWindowStyleResizable];
@@ -627,7 +631,7 @@ int   main( int argc, char *argv[])
    [window setFrameCallback:frameCallback];
    [window setFrameRateHz:60.0];
 
-   return( UIApplicationRunWindow( window));
+   return( [app runWindow:window]);
 }
 ```
 
@@ -652,7 +656,9 @@ static void   myRetainedEventHandler( RCoreOSWindow *window, UIEvent *event)
 int   main( int argc, char *argv[])
 {
    RCoreOSWindow   *window;
+   UIApplication   *app;
 
+   app = [UIApplication sharedInstance];
    window = [RCoreOSWindow windowWithFrame:CGRectMake( 0, 0, 800, 450)
                            titleUTF8String:"Events Demo"
                                  styleMask:UIWindowStyleResizable];
@@ -663,7 +669,7 @@ int   main( int argc, char *argv[])
    [window setOtherRetainedEventsCallback:myRetainedEventHandler];
    [window setFrameRateHz:60.0];
 
-   return( UIApplicationRunWindow( window));
+   return( [app runWindow:window]);
 }
 ```
 
@@ -695,7 +701,7 @@ int   main( int argc, char *argv[])
    [window setFrameCallback:frameCallback];
    [window setFrameRateHz:60.0];
 
-   return( UIApplicationRunWindow( window));
+   return( [app runWindow:window]);
 }
 ```
 

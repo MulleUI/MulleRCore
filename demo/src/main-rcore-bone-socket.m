@@ -264,8 +264,10 @@ static UIWindowDisplayBits   frameCallback( id <UIOSWindow> osWindow)
 int   main( int argc, char *argv[])
 {
    RCoreOSWindow   *window;
+   UIApplication   *app;
    int              rval;
 
+   app = [UIApplication sharedInstance];
    window = [RCoreOSWindow windowWithFrame:CGRectMake( 0, 0, 800, 450)
                            titleUTF8String:"MulleRCore - Bone Socket"
                                  styleMask:UIWindowStyleResizable];
@@ -278,7 +280,7 @@ int   main( int argc, char *argv[])
    [window setFrameCallback:frameCallback];
    [window setFrameRateHz:60.0];
 
-   rval = UIApplicationRunWindow( window);
+   rval = [app runWindow:window];
 
    demoFinalize();
    return( rval);

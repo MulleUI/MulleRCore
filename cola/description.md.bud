@@ -1,0 +1,4 @@
+MulleRCore provides platform windows, events and gamepad input via
+[raylib](https://github.com/raysan5/raylib). It serves the same role as
+MulleGLFW and MulleSDL — a concrete platform backend for MulleUIApplication —
+but uses raylib's windowing and input layer instead.
