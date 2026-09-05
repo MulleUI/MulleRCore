@@ -60,6 +60,5 @@ src/RCoreOSScreen.h
 src/RCoreOSWindow+UIEvent.h
 src/RCoreOSWindow.h
 src/generic/MulleObjCDeps+MulleRCore.h
-src/reflect/_MulleRCore-versioncheck.h
 )
 
