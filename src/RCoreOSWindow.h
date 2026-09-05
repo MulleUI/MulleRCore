@@ -170,5 +170,7 @@ typedef void   (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, U
 @end
 
 
+MULLE_R_CORE_GLOBAL
 void   RCoreOSWindowEventDefaultCallback( RCoreOSWindow *window, UIWindowEvent *event);
+MULLE_R_CORE_GLOBAL
 void   RCoreOSWindowRetainedEventDefaultCallback( RCoreOSWindow *window, UIEvent *retainedEvent);
