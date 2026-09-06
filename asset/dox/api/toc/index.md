@@ -72,9 +72,12 @@ typedef void (*RCoreOSWindowEventCallback_t)( RCoreOSWindow *window, UIWindowEve
 typedef void (*RCoreOSWindowRetainedEventCallback_t)( RCoreOSWindow *window, UIEvent *retainedEvent);
 ```
 
-**Default Callback Functions:**
+**Default Callback Functions** (exposed as global symbols via
+`MULLE_R_CORE_GLOBAL`):
 ```c
+MULLE_R_CORE_GLOBAL
 void RCoreOSWindowEventDefaultCallback( RCoreOSWindow *window, UIWindowEvent *event);
+MULLE_R_CORE_GLOBAL
 void RCoreOSWindowRetainedEventDefaultCallback( RCoreOSWindow *window, UIEvent *retainedEvent);
 ```
 
@@ -148,8 +151,8 @@ most specific designated initializer. `sharingWindow` is not supported
 - (void) getOSWindowInfo:(struct UIOSWindowInfo *) info  MULLE_OBJC_THREADSAFE_METHOD;
 - (id <UIScreen>) screen                              MULLE_OBJC_THREADSAFE_METHOD;
 - (id <UIScreen>) screenOrPrimaryScreen:(BOOL) flag   MULLE_OBJC_THREADSAFE_METHOD;
-- (NSInteger) shareID;
-- (BOOL) shouldClose                                  MULLE_OBJC_THREADSAFE_METHOD;
+- (NSInteger) shareID      MULLE_OBJC_THREADSAFE_METHOD;
+- (BOOL) shouldClose       MULLE_OBJC_THREADSAFE_METHOD;
 ```
 
 **Window Management:**
