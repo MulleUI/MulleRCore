@@ -2,7 +2,7 @@
 
 Part of [MulleUI](https://github.com/MulleUI) — UIKit-shaped modular GUI libraries for mulle-objc.
 
-#### 🌐 MulleRCore provides platform windows and events via raylib
+#### Part of [MulleUI](https://github.com/MulleUI) — UIKit-shaped modular GUI libraries for mulle-objc.
 
 MulleRCore provides platform windows, events and gamepad input via
 [raylib](https://github.com/raysan5/raylib). It serves the same role as
@@ -71,7 +71,7 @@ Install the requirements:
 | [MulleObjC](https://github.com/mulle-objc/MulleObjC)             | 💎 A collection of Objective-C root classes for mulle-objc
 | [MulleUIApplication](https://github.com/MulleUI/MulleUIApplication)             | Part of [MulleUI](https://github.com/MulleUI) — UIKit-shaped modular GUI libraries for mulle-objc.
 | [raylib](https://github.com/raysan5/raylib)             | 
-| [mulle-objc-list](https://github.com/mulle-objc/mulle-objc-list)             | 📒 Lists mulle-objc runtime information contained in executables.
+| [mulle-objc-tools](https://github.com/mulle-objc/mulle-objc-tools)             | 📒 Lists mulle-objc runtime information contained in executables.
 
 Download the latest [tar](https://github.com/MulleUI/MulleRCore/archive/refs/tags/latest.tar.gz) or [zip](https://github.com/MulleUI/MulleRCore/archive/refs/tags/latest.zip) archive and unpack it.
 
