@@ -6,6 +6,7 @@
       language="c";
       dialect="objc";
       name="MulleRCore";
+      version="0.2.0";
       user="MulleUI";
       repo="MulleRCore";
       homepage="https://github.com/MulleUI/MulleRCore";
