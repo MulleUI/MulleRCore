@@ -2,6 +2,7 @@
 
 
 
+
 feature: add robust `add_subdirectory` and `find_package` consumption support
 
 * `add_subdirectory` consumers now inherit include directories, dependency targets and build ordering, so a plain `target_link_libraries(` app PRIVATE MulleRCore) suffices
